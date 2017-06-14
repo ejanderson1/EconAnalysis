@@ -1,0 +1,11 @@
+Package: EconAnalysis
+Title: Cost-Effective Analysis 
+Version: 1.0.0
+Authors@R: person("Emeli J.", "Anderson", email = "emeli.anderson@emory.edu", role = c("aut", "cre"))
+Description: EconAnalysis is a pacakge used to conduct a general cost-effective analysis for mathematical models.
+Depends: R (>= 3.3.2)
+License: GPL-3
+Depends: EpiModelHIV (>=1.0.0)
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 6.0.1
