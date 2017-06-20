@@ -61,6 +61,7 @@
 #'        rectal gonorrhea
 #' @param uNG.test.couns.cost office visit, testing, and counseling cost for
 #'        urethral gonorrhea
+#' @param disc.rate discount rate
 #'
 #' @return a list object of class \code{params_cea},
 #' to pass in to [insert function]
@@ -68,81 +69,81 @@
 #' @export
 #'
 
-param_cea <- function(
+param_cea <- list(c(
 
   # HRQoL
 
-  HIVneg.util = 1.0,
-  acute.undx.util = 0.92,
+  HIVneg.util <- 1.0,
+  acute.undx.util <- 0.92,
   acute.dx.util = 0.86,
-  early.chron.undx.util = 0.91,
-  early.chron.dx.yr1.util = 0.84,
-  early.chron.dx.postyr1.util = 0.89,
-  early.chron.art.util = 0.95,
-  late.chron.undx.util = 0.79,
-  late.chron.dx.util = 0.72,
-  late.chron.art.util = 0.83,
-  aids.undx.util = 0.72,
-  aids.dx.util = 0.72,
-  aids.art.util = 0.82,
+  early.chron.undx.util <- 0.91,
+  early.chron.dx.yr1.util <- 0.84,
+  early.chron.dx.postyr1.util <- 0.89,
+  early.chron.art.util <- 0.95,
+  late.chron.undx.util <- 0.79,
+  late.chron.dx.util <- 0.72,
+  late.chron.art.util <- 0.83,
+  aids.undx.util <- 0.72,
+  aids.dx.util <- 0.72,
+  aids.art.util <- 0.82,
 
   # Costs
 
   # Annual non-HIV-related healthcare costs
 
-  healthcare.cost = 4632.67,
+  healthcare.cost <- 4632.67,
 
   # Annual HIV-related healthcare costs (excludes ART)
 
-  acute.cost = 34.5,
-  early.chron.cost = 4744.23,
-  early.chron.tx.cost = 3880.49,
-  late.chron.cost = 7964.56,
-  late.chron.tx.cost = 7100.82,
-  aids.cost = 25116.24,
-  aids.tx.cost = 11429.86,
+  acute.cost <- 34.5,
+  early.chron.cost <- 4744.23,
+  early.chron.tx.cost <- 3880.49,
+  late.chron.cost <- 7964.56,
+  late.chron.tx.cost <- 7100.82,
+  aids.cost <- 25116.24,
+  aids.tx.cost <- 11429.86,
 
   # Annual ART costs
 
-  ann.art.cost = 17908.46,
+  ann.art.cost <- 17908.46,
 
   # HIV testing costs
 
-  test.init = 25.41,
-  test.confirm = 31.57,
-  total.test.cost.pos = test.init + test.confirm,
+  test.init <- 25.41,
+  test.confirm <- 31.57,
+  total.test.cost.pos <- 25.41 + 31.57,
 
   # HIV counseling costs
 
-  pre.test.couns = 13,
-  post.test.pos = 14,
-  post.test.neg = 7,
-  total.couns.cost.neg = pre.test.couns + post.test.neg,
-  total.couns.cost.pos = pre.test.couns + post.test.pos,
+  pre.test.couns <- 13,
+  post.test.pos <- 14,
+  post.test.neg <- 7,
+  total.couns.cost.neg <- 13 + 7,
+  total.couns.cost.pos <- 13 + 14,
 
   # STI testing and counseling costs
 
-  syph.test.couns.cost = 168.7,
-  rCT.test.couns.cost = 180.64,
-  uCT.test.couns.cost = 180.64,
-  rNG.test.couns.cost = 180.64,
-  uNG.test.couns.cost = 180.64,
+  syph.test.couns.cost <- 168.7,
+  rCT.test.couns.cost <- 180.64,
+  uCT.test.couns.cost <- 180.64,
+  rNG.test.couns.cost <- 180.64,
+  uNG.test.couns.cost <- 180.64,
 
   # STI treatment costs
 
-  syph.tx = 101.74,
-  rCT.tx = 51.91,
-  uCT.tx = 51.91,
-  rNG.tx = 51.91,
-  uNG.tx = 51.91,
-  CT.tx = 51.91,
-  NG.tx = 51.91
+  syph.tx <- 101.74,
+  rCT.tx <- 51.91,
+  uCT.tx <- 51.91,
+  rNG.tx <- 51.91,
+  uNG.tx <- 51.91,
+  CT.tx <- 51.91,
+  NG.tx <- 51.91,
 
-){
+  # Discount rate
 
-  p <- EpiModelHIV::get_args(formal.args = formals(sys.function()),
-                dot.args = list(...))
-  return(p)}
+  disc.rate <- 0
+
+))
 
 
 
