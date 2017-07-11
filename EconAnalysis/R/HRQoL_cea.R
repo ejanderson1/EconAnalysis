@@ -55,37 +55,40 @@ HIV_qaly_em <- function(HIVneg.util,
                      aids.undx.util,
                      aids.dx.util,
                      aids.art.util,
-                     pt.neg,
-                     pt.acute.undx,
-                     pt.acute.dx,
-                     pt.early.chron.undx,
-                     pt.early.chron.dx.yr1,
-                     pt.early.chron.dx.postyr1,
-                     pt.early.chron.art,
-                     pt.late.chron.undx,
-                     pt.late.chron.dx,
-                     pt.late.chron.art,
-                     pt.aids.undx,
-                     pt.aids.dx,
-                     pt.aids.art,
+                     time.hivneg,
+                     stage.time.ar.ndx,
+                     stage.time.af.ndx,
+                     stage.time.ar.dx,
+                     stage.time.af.dx,
+                     stage.time.early.chronic.ndx,
+                     stage.time.early.chronic.dx.yrone,
+                     stage.time.early.chronic.dx.yrstwotolate,
+                     stage.time.early.chronic.art,
+                     stage.time.late.chronic.ndx,
+                     stage.time.late.chronic.dx,
+                     stage.time.late.chronic.art,
+                     stage.time.aids.ndx,
+                     stage.time.aids.dx,
+                     stage.time.aids.art,
                      ...) {
 
   # Calculate QALYs for each health state
 
-  hivneg.qaly <- HIVneg.util * pt.neg
-  acute.undx.qaly <- acute.undx.util * pt.acute.undx
-  acute.dx.qaly <- acute.dx.util * pt.acute.dx
-  early.chron.undx.qaly <- early.chron.undx.util * pt.early.chron.undx
-  early.chron.dx.yr1.qaly <- early.chron.dx.yr1.util * pt.early.chron.dx.yr1
+  hivneg.qaly <- HIVneg.util * time.hivneg
+  acute.undx.qaly <- acute.undx.util * (stage.time.ar.ndx + stage.time.af.ndx)
+  acute.dx.qaly <- acute.dx.util * (stage.time.ar.dx + stage.time.af.dx)
+  early.chron.undx.qaly <- early.chron.undx.util * stage.time.early.chronic.ndx
+  early.chron.dx.yr1.qaly <- early.chron.dx.yr1.util *
+                             stage.time.early.chronic.dx.yrone
   early.chron.dx.postyr1.qaly <- early.chron.dx.postyr1.util *
-                                 pt.early.chron.dx.postyr1
-  early.chron.art.qaly <- early.chron.art.util * pt.late.chron.art
-  late.chron.undx.qaly <- late.chron.undx.util * pt.late.chron.undx
-  late.chron.dx.qaly <- late.chron.dx.util * pt.late.chron.dx
-  late.chron.art.qaly <- late.chron.art.util * pt.late.chron.art
-  aids.undx.qaly <- aids.undx.util * pt.aids.undx
-  aids.dx.qaly <- aids.dx.util * pt.aids.dx
-  aids.art.qaly <- aids.art.util * pt.aids.art
+                                 stage.time.early.chronic.dx.yrstwotolate
+  early.chron.art.qaly <- early.chron.art.util * stage.time.early.chronic.art
+  late.chron.undx.qaly <- late.chron.undx.util * stage.time.late.chronic.ndx
+  late.chron.dx.qaly <- late.chron.dx.util * stage.time.late.chronic.dx
+  late.chron.art.qaly <- late.chron.art.util * stage.time.late.chronic.art
+  aids.undx.qaly <- aids.undx.util * stage.time.aids.ndx
+  aids.dx.qaly <- aids.dx.util * stage.time.aids.dx
+  aids.art.qaly <- aids.art.util * stage.time.aids.art
 
   # Calculate total QALYs
 
