@@ -40,7 +40,7 @@ total_qaly_calc <- function(util_vec, pt_vec) {
 }
 
 
-# HIV specific
+# Function specific to EpiModel STI project
 
 HIV_qaly_em <- function(HIVneg.util,
                      acute.undx.util,

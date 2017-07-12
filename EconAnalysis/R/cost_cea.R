@@ -13,7 +13,7 @@
 #' @export
 #'
 
-# Function specific to EpiModel STI project
+# General function specific to EpiModel STI project
 
 cost_calc_em <- function(ann.hlthcare.cost,
                       ann.acute.cost,
@@ -165,13 +165,5 @@ cost_calc_em <- function(ann.hlthcare.cost,
               tot.syph.tx.cost, tot.ng.cost, tot.ct.cost, tot.syph.cost,
               tot.sti.cost, total.cost))
 }
-
-
-
-
-
-
-
-
 
 
